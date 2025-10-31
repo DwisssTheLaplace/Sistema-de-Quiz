@@ -1,29 +1,34 @@
-# Projeto de Teste: Conexão TypeScript com PostgreSQL
+# Projeto 
 
-Olá, alunos do professor Eduardo Popovici!
+Esta é a realização de uma atividade passada em faculdade (UniAnchieta Jundiaí) para a criação de um sistema de quiz typescript conforme orientado pelo professor eduardo popovici com o objetivo de ganhar experiência de uma funcionalidade essencial no desenvolvimento de software: **conectar uma aplicação a um banco de dados e inserir informações.**
 
-Você pode precisar montar um banco de dados para realizar a atividade. Para isso utilize a postagem pela URL https://www.eduardopopovici.com/2025/09/como-montar-um-conteiner-com-postgre.html 
+Desenvolvido pelos alunos: <br>
+    **Eduardo Fernando De Almeida Loschi - (RA:2509964)** <br>
+    **João Vitor Quirino Ramos- (RA: 2526428)**
 
-Este é um projeto simples, criado como material de apoio para a aula, com o objetivo de demonstrar uma funcionalidade essencial no desenvolvimento de software: **conectar uma aplicação a um banco de dados e inserir informações**.
+Referências:
+https://www.eduardopopovici.com/2025/09/como-montar-um-conteiner-com-postgre.html (Passo a passo da instalação do PostgreSQL via container pelo docker) <br>
+https://github.com/edupopov/ExercicioBancoDeDados (API original do professor)
 
-Importante, os passos de como executar de fim a fim, serão realizados em sala de aulas.
+
 
 <img width="1240" height="677" alt="image" src="https://github.com/user-attachments/assets/74b13711-87cc-4b2f-9077-c5a6c5478079" />
 
-Dica, programe escutando música, vai te ajudar durante o processo. Aqui vai minha recomendação https://www.youtube.com/watch?v=kWRScWjjLIY
+Representação passada pelo professor sobre a comunicação entre as plataformas e processos.
 
 ---
 
-### O Que Este Projeto Faz?
+### O Que Esse Projeto Faz?
 
-A funcionalidade do script é muito direta:
+O script simula o registro de perguntas para um quiz e permite a realização do questionario com pontuações, registrando tudo isso em um banco de dados. 
 
 1.  **Conecta-se** a um banco de dados PostgreSQL (que deve estar rodando via Docker).
-2.  **Pede ao usuário** para digitar um nome, uma idade e uma data de nascimento diretamente no terminal.
-3.  **Executa um comando SQL `INSERT`** para salvar esses dados em uma tabela chamada `pessoas`.
-4.  **Encerra a conexão** de forma segura.
+2.  **Pede ao usuário** para registrar seu nome, perguntas e respostas.
+3.  **Prepara o ambiente** criando duas tabelas no banco de dados.
+4.  **Executa um comando SQL `INSERT`** para salvar esses dados em uma tabela pública chamada `kahoot` e `usuario`.
+5.  **Encerra a conexão** de forma segura.
 
-<img width="1586" height="897" alt="image" src="https://github.com/user-attachments/assets/5aee0574-e544-4094-8765-80e5b86c0a87" />
+---
 
 ### Quais ferramentas você vai precisar?
 
@@ -32,9 +37,6 @@ A funcionalidade do script é muito direta:
 3. PGAdmin
 4. Typescript - NodeJS
 5. GitBash
-
-<img width="1916" height="1018" alt="image" src="https://github.com/user-attachments/assets/149ff003-802f-4ba5-8020-f6de3d902db4" />
-
 
 ---
 
@@ -63,15 +65,15 @@ A maneira correta de gerenciar informações sensíveis como essa é usar **Vari
 Ao clonar ou criar o projeto, você encontrará os seguintes arquivos e diretórios principais:
 
 ```
-/ESCREVER-NO-BANCO
+/ExercicioBancoDeDados
 |
 |-- /dist/
-|   |-- ExercicioBancoDeDados.js  <-- O código JavaScript compilado que será executado.
+|   |-- Kahoot.js  <-- O código JavaScript compilado que será executado.
 |
 |-- /node_modules/
 |   |-- ... (várias pastas)     <-- Dependências e bibliotecas do projeto.
 |
-|-- ExercicioBancoDeDados.ts      <-- Nosso código-fonte principal, escrito em TypeScript.
+|-- Kahoot.ts      <-- Nosso código-fonte principal, escrito em TypeScript.
 |
 |-- package.json                  <-- O "RG" do projeto: lista as dependências e scripts.
 |
@@ -99,23 +101,21 @@ Siga os passos abaixo no terminal, dentro da pasta do projeto.
     ```
 
 2.  **Compilar o Código TypeScript**
-    Este comando invoca o compilador do TypeScript (`tsc`), que lê o arquivo `ExercicioBancoDeDados.ts`, segue as regras do `tsconfig.json`, e gera o arquivo JavaScript correspondente dentro da pasta `/dist`.
+    Este comando invoca o compilador do TypeScript (`tsc`), que lê o arquivo `Kahoot.ts`, segue as regras do `tsconfig.json`, e gera o arquivo JavaScript correspondente dentro da pasta `/dist`.
     ```bash
     npx tsc
     ```
 
+
 3.  **Executar o Programa**
     Agora, executamos o arquivo JavaScript que foi gerado no passo anterior.
     ```bash
-    node dist/ExercicioBancoDeDados.js
+    node dist/Kahoot.js
     ```
-<img width="1913" height="1017" alt="image" src="https://github.com/user-attachments/assets/3cdfb7a7-cec9-4bac-b12e-a5d4fd5b7b5b" />
+    Verifique o ambiente preparado dentro do pgAdmin:
+    ```pgAdmin
+        Databases/Seu-Banco-De-Dados/Schemas/public/Tables
+    ``` 
+<img width="419" height="753" alt="Image" src="https://github.com/user-attachments/assets/4ee6cfed-f23d-4305-b4af-85147a6d57fb" />
 
-Ao executar o último comando, o terminal irá fazer as perguntas. Após respondê-las, verifique no pgAdmin se os novos dados apareceram na sua tabela `pessoas`!
-
-Quando acessar o banco de dados, será possível validar se houve a escrita ou não.
-
-<img width="1903" height="1018" alt="image" src="https://github.com/user-attachments/assets/48e94be0-8ee9-46c2-acbc-e5a2a87911fb" />
-
-
-Bons estudos!
+Obrigado pela atenção!
