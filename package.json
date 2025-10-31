@@ -1,0 +1,29 @@
+{
+  "name": "escrever-no-bancov3",
+  "version": "1.0.0",
+  "description": " ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.16.3",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.9",
+    "@types/readline-sync": "^1.4.8",
+    "typescript": "^5.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edupopov/ExercicioBancoDeDados.git"
+  },
+  "bugs": {
+    "url": "https://github.com/edupopov/ExercicioBancoDeDados/issues"
+  },
+  "homepage": "https://github.com/edupopov/ExercicioBancoDeDados#readme"
+}
